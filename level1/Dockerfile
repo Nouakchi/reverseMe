@@ -2,12 +2,12 @@
 FROM ubuntu:22.04
 
 # Install dependencies for disassembling, debugging, and running the program
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y binutils \
     libc6-i386 \
     vim
 
 WORKDIR /workspace
 
-COPY level1 /workspace/level1
+COPY . .
 
 ENTRYPOINT ["/bin/bash"]
