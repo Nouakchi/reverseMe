@@ -24,8 +24,6 @@ int main() {
     // Process input in groups of 3 digits
     int input_pos = 2;  // Start after "00"
     int output_pos = 1; // Start after 'd'
-
-    printf("%s\n", transformed);
     
     while (input[input_pos] && input[input_pos+1] && input[input_pos+2]) {
         // Get 3 characters from input

@@ -1,0 +1,218 @@
+NAME=320c64 OPEX
+FILE=malloc://512280
+CMDS=<<EOF
+e asm.arch=tms320
+e asm.cpu=c64x
+wx 0041bd10
+aoj~{}
+EOF
+EXPECT=<<EOF
+[
+  {
+    "opcode": "smpyh a10, a15, a1",
+    "disasm": "smpyh a10, a15, a1",
+    "pseudo": "a1 = a10 * a15",
+    "mnemonic": "smpyh",
+    "mask": "ffffffff",
+    "sign": false,
+    "id": 109,
+    "opex": {
+      "operands": [
+        {
+          "type": "reg",
+          "value": "a10"
+        },
+        {
+          "type": "reg",
+          "value": "a15"
+        },
+        {
+          "type": "reg",
+          "value": "a1"
+        }
+      ]
+    },
+    "addr": 0,
+    "bytes": "0041bd10",
+    "size": 4,
+    "type": "null",
+    "esilcost": 0,
+    "cycles": 0,
+    "failcycles": 0,
+    "delay": 0,
+    "stackptr": 0,
+    "family": "cpu"
+  }
+]
+EOF
+RUN
+
+NAME=320c64 pseudo
+FILE=bins/elf/ld-2.27.so
+CMDS=<<EOF
+e asm.arch=tms320
+e asm.cpu=c64x
+e asm.pseudo=true
+pi~=
+EOF
+EXPECT=<<EOF
+a17 = 0x1c ext a25 .. 9
+a0 = 0 ext a0 .. 0xe
+a23 = 4 ext a17 .. 9
+b20 = (word)*+a0[1]
+a8 = 4 ext a9 .. 0xd
+a16 = -0x5a7c
+a18 = 0xe .bitset a18 .. 0xe
+b17 = b7 * b28
+b31 = 0x11 .bitset b9 .. 0x11
+a18 = (half)*+b14[0x10d5]
+a2 = (half)*+b15[0x855]
+a10 = (word)*+b15[0x66e8]
+a30 = 0xc ext a5 .. 0xd
+a24 = a0 - a0
+a30 = 0xf .bitset a16 .. 0xf
+b1 = (half)*+b14[0x41f]
+b2 = b2 * b1
+b1 = (half)*+b14[0x41f]
+b2 = b3 * b1
+b1 = (half)*+b14[0x41f]
+b23 += 0x1290
+*--a18[9] = (half)a12:a11
+a7:a6 = a6 * a18
+a22 = (word)*+b15[0x4810]
+*-a18[a0] = (word)b14
+b0 = (half)*--a0[0]
+a16 = 0x1c ext a15 .. 0xb
+a0 = (byte)*-a0[a0]
+a8 = 4 ext a21 .. 0xd
+a20 = 3 ext a0 .. 0xa
+a7 = (half)*+b15[0x88e]
+a1 = (half) 0x3eeb
+b16 = 2 .bitset b9 .. 2
+a9 = 0xc ext a18 .. 5
+*+a18(0) = (half)a23:a22
+a7 = 0xa ext a2 .. 8
+a2 = 0xc ext a1 .. 0xd
+*+b14[0x22] = (word)b6
+a25 = 0x1c ext a30 .. 9
+b11 = 0x10 .bitset b19 .. 0x10
+a16 = (word)*+a0[1]
+a9 = (half)*+b15[0x6015]
+a16 = 0x1c ext a15 .. 0xb
+b16 = b7 * b2
+*+b15[0x7fff] = (word)b31
+*+b15[0x3e30] = (word)b3
+a10 = (half)*+b15[0x76e8]
+a16 = 0x1c ext a16 .. 9
+a6 = -6 == a22
+b0 = (half)*+b14[0x401f]
+b1 = (half)*+b14[0x41f]
+a16 = 0xf .bitset a29 .. 0xf
+a2 = 0xc ext a1 .. 0xb
+a16 = (word)*+a0[1]
+b26 = 0 .bitset b18 .. 0
+*-a0(0) = (half)b17:b16
+a16 = 0 ext a17 .. 0xf
+a16 = 0xc ext a13 .. 0xd
+*-a0(0) = (half)b31:b30
+a28:a27 = a14 * a26
+a0 = -8 * a7
+b1 = (half)*+b14[0x41f]
+a18 = 0xc ext a1 .. 0xb
+a18 = (word)*+a0[1]
+a26 = 6 .bitset a18 .. 6
+*-a0(0) = (half)b17:b16
+a26 = 7 .bitset a18 .. 7
+*-a0(0) = (half)b31:b30
+a16 = 4 ext a0 .. 0xb
+a30 = (half)*-a18[6]
+a18 = (half)*+a18[6]
+a8 = a15 - 7
+b1 = (half)*+b14[0x41f]
+*-a2[a10] = (word)a29
+b11 += 0x1290
+a30 = 0xc ext a3 .. 0xd
+b22 = b7 * b20
+a4 = (byte)*+b14[0x6e1d]
+a16 = 3 .bitset a9 .. 3
+a8 = 4 ext a13 .. 9
+a8 = (half)*+b14[0x448d]
+a9 = 0xa ext a3 .. 8
+a13:a12 = *a3++(a24)
+a8 = 4 ext a29 .. 0xd
+a25 = 0x1a90
+a14 = (byte)*-a18[1]
+a0 = 0
+a0 = zero
+a0 = 0x4888
+a31 = (half) -0x739
+*+b15[0xb4c] = (word)b9
+a10 = (byte)*-a19[a9]
+a18 = a7 - 9
+a30 = (word)*+b14[0x22]
+a6 = (byte)*-a18[6]
+a26 = (half)*--a22[26]
+b0 = (byte)*+b14[0x44]
+a18 = 0xc ext a13 .. 0xd
+b16 = (half)*+a0[0]
+a18 = 7 .bitset a19 .. 7
+a2 = (half) 0x72f
+b2 = b6 * b20
+a2 = a23 - 0xa
+*+b14[0x66c3] = (half)b0
+b1 = (half)*+b14[0x41f]
+b15 += 0x1688
+a16 = 0x1c ext a12 .. 0xb
+b2 = 3 .bitset b2 .. 3
+b17 += 0x283
+b11 = (half)*+b14[0x4295]
+a0 = (half) -0xa09
+a22 = 2 .bitset a6 .. 2
+b0 = (byte)*+b14[0x44]
+a2 = (half)*+b14[0x2d8d]
+*-a0(0) = (half)a11:a10
+b25 += 0x1292
+a17 = 4 ext a27 .. 1
+b30 = 0 .bitset b18 .. 0
+a25 = (half)*+b15[0x4ccc]
+a25 = (half)*+b15[0x4ccc]
+a19 = 0x14 ext a25 .. 9
+a0 = (half)*+b15[0x1476]
+a17 = 4 ext a18 .. 9
+a7 = 0x16 ext a26 .. 1
+a4 = 4 ext a1 .. 0xd
+a17 = 0 ext a16 .. 1
+a10 = -0x6e7e
+b12 += 0x1e83
+a13 = 6 .bitset a2 .. 6
+*--a18[a14] = (word)a26
+b17 = (half)*a14--[16]
+a25 = 0xa * a3
+a18 = (byte)*-a18[1]
+a1 = 1 ext a18 .. 0x1d
+a4 = 0x18 ext a17 .. 0xf
+b2 = b7 * b2
+a16 = 0x16 .bitset a28 .. 0x16
+a19 = 0xe .bitset a16 .. 0xe
+a4 = 0xd ext a12 .. 5
+*-a2[a24] = (half)a13:a12
+a9 = 0x10 .bitset a14 .. 0x10
+a1 = a18 * a29
+a25 = (half)*+b14[0x370f]
+a16 = 0x18 .bitset a5 .. 0x18
+b2 = b22 * b0
+b8 = b15 * b0
+b14 = (byte)*-a3[a4]
+a9 = a10 * a3
+b27 = (half)*-a3[a10]
+*+b14[0x1f5] = (word)b0
+a17 = 0x11 ext a16 .. 9
+b16 = b7 * b2
+a17 = 0x16 .bitset a14 .. 0x16
+b7 = (half)*+b14[0x4247]
+b8 = (half)*+b14[0xc83]
+a10 = 0x1e09
+b0 = (byte)*+b15[0x5]
+*++a3[24] = (word)a12
+EOF
+RUN
